@@ -8,6 +8,9 @@ body {
     /* Center content horizontally */
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
 
     /* Center content vertically */
     align-items: center;
@@ -42,5 +45,90 @@ input, button {
     /* Make container wider on small screens */
     .container {
         width: 90%;
+    }
+}
+
+/* ===============================
+   Image Slider Layout
+   =============================== */
+.slider {
+    position: relative;
+    width: 90vw;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: #000;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Navigation buttons */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    color: #333;
+    font-size: 24px;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.nav:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.prev { left: 12px; }
+.next { right: 12px; }
+
+/* Dots below slider */
+.dots {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dot.active {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+/* ===============================
+   Slider Responsive Design
+   =============================== */
+@media (max-width: 768px) {
+    .slide {
+        height: 260px;
     }
 }
